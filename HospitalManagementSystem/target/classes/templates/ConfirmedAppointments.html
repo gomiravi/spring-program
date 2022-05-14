@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Not Confirmed</title>
+<link th:href="@{/css/Homestyle.css}" rel="stylesheet">
+</head>
+<body>
+<div id="div1" align="center">
+			<h1>Confirmed Appointments</h1>
+			 
+			<br/><br/>
+			<table border="1" cellpadding="10" style="background-color: #B2E5FC;">
+				<thead>
+				<tr>
+				<th>Appointment ID</th>
+				<th>Patient Name</th>
+				<th>Age</th>
+				<th>Gender</th>
+				<th>Location</th>
+				<th>Appointment Time</th>
+				<th>Phone Number</th>
+				<th>Status</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="appointment : ${listconfirmed}">
+				<td th:text="${appointment.id}">Appointment ID</td>
+				<td th:text="${appointment.patient_name}">Patient Name</td>
+				<td th:text="${appointment.age}">Age</td>
+				<td th:text="${appointment.gender}">Gender</td>
+				<td th:text="${appointment.location}">Location</td>
+				<td th:text="${appointment.appointment_time}">Appointment Time</td>
+				<td th:text="${appointment.phone_number}">Phone Number</td>
+				 <td th:text="Confirmed">Status</td>
+				 
+	
+				 
+				</tbody>
+			</table>
+
+</div>
+</body>
+</html>

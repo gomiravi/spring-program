@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+
+<title>Book Appointment</title>
+<link th:href="@{/css/appointment.css}" rel="stylesheet">
+<style type="text/css">
+thead {
+	padding: 20px 20px 20px 20px;
+}
+
+select {
+	width: 150px;
+}
+
+#tda {
+	width: 150px;
+}
+</style>
+</head>
+
+<body>
+	<div id="container">
+		<!--This is a division tag for body container-->
+		<div id="body_header">
+			<!--This is a division tag for body header-->
+			<h1>Appointment Request Form</h1>
+			<p>Make your appointments more easier</p>
+
+		</div>
+		<div>
+			<form method="post" action=# th:action="@{saveappointment}" th:object="${bookappointment}">
+				<table>
+					<thead align="center">Appointment Form
+					</thead>
+					 
+					<tr>
+						<td id="tda"><label for="patient_name"> Patient Name:</label></td>
+						<td><input type="text" th:field=*{patient_name} name="patient_name"
+							placeholder="name " required pattern="[a-zA-Z0-9]+"></td>
+					</tr>
+					<tr>
+						<td><label for="age">Age:</label></td>
+						<td><input type="text" th:field=*{age} name="age" placeholder="age"
+							required></td>
+					</tr>
+					<tr>
+						<td><label for="gender">Gender:</label></td>
+						<td><select th:field=*{gender}>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+
+						</select></td>
+					<tr>
+
+						<td><label for="location">Location:</label></td>
+						<td><input type="text" th:field=*{location} placeholder="location"></td>
+					</tr>
+
+					<tr>
+						<td><label for="appointment_time">Appointment Time:</label></td>
+						<td><input type="text" th:field=*{appointment_time}
+							placeholder="appointment"></td>
+					</tr>
+					<tr>
+						<td><label for="phone_number">Phone Number:</label></td>
+						<td><input type="text" th:field=*{phone_number} placeholder="phone"></td>
+					</tr>
+					<tr></tr>
+					<tfoot align="center">
+
+						<td colspan="2">
+							<button type="submit">Book Appointment</button>
+						</td>
+					</tfoot>
+				</table>
+			</form>
+		</div>
+</body>
+
+</html>

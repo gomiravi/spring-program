@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Doctor</title>
+</head>
+ <style>
+ .styled-table {
+ 	text-align :left;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: black;
+    background-color: rgb(0,255,255);
+   
+}
+#tdc{
+padding: 4px 20px;
+
+}
+#tde{
+padding: 10px 0px 0px 20px;
+
+}
+ 
+.styled-table td {
+    padding: 12px 15px;
+}
+
+
+ 
+ body {
+	background-image: url("/indexpic.jpg");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: 	#F0F8FF;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #00BFFF;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #CCFFFF;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #00FFFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+ 
+ </style>
+
+<body>
+<div class="navbar">
+  <div class="dropdown">
+    <button  class="dropbtn" ><a th:href="@{'/Admin/Home/'}">Back to Home</a>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    </div>
+
+</div>
+	<div align="center">
+	<form method="post" action=# th:action="@{/save}" th:object="${doctor}">
+		<table align="center" class="styled-table" >
+		 
+			<thead align="center"><td colspan="2"><strong>Enter Doctor Details</strong></td></thead>
+		
+			<tr>
+				<td id="tde"><label for="fname">First Name</label>
+				</td>
+				<td id="tde" ><label for="lname">Last Name</label></td>
+			</tr>
+			
+			<tr>
+				<td id="tdc"> <input type="text" th:field=*{fname} placeholder="First Name"  ></td>
+				
+				<td id="tdc"><input type="text" th:field=*{lname} placeholder="Last Name"  >
+				</td>
+			</tr>
+			<tr> <td th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}">Name Error</td> 
+			<td th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}">Name Error</td></tr>
+			 
+			
+			<tr>
+				<td id="tde"><label for="loginid">Login Id</label>
+				</td>
+				<td id="tde"><label for="password">Password</label></td>
+			</tr>
+			
+			<tr>
+				<td id="tdc"><input type="text" th:field=*{loginid} placeholder="Login Id"  ></td>
+				
+				<td id="tdc"><input type="password" th:field=*{password} placeholder="Password"  >
+				</td>
+			</tr>
+			<tr> <td th:if="${#fields.hasErrors('loginid')}" th:errors="*{loginid}">Name Error</td> 
+			<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</td></tr>
+			 
+			<tr>
+				<td id="tde"><label for="emailid">Email Id</label>
+				</td>
+				<td id="tde"><label for="bloodgroup">Blood Group</label></td>
+			</tr>
+			<br>
+			<tr>
+				<td id="tdc"><input type="email" th:field=*{emailid} placeholder="Email id"  ></td>
+				
+				<td id="tdc"><input type="text" th:field=*{bloodgroup} placeholder="Blood Group"  >
+				</td>
+			</tr>
+			<tr> <td th:if="${#fields.hasErrors('emailid')}" th:errors="*{emailid}">Name Error</td> 
+			<td th:if="${#fields.hasErrors('bloodgroup')}" th:errors="*{bloodgroup}">Name Error</td></tr>
+			 
+			<tr>
+				<td id="tde"><label for="dob">Date Of Birth</label>
+				</td>
+				<td id="tde"><label for="age">Age</label></td>
+			</tr>
+		 
+			<tr>
+				<td id="tdc"><input type="date" th:field=*{dob}   ></td>
+				
+				<td id="tdc"><input type="text" th:field=*{age} placeholder="Age"  >
+				</td>
+			</tr>
+			<tr> <td th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}">Name Error</td> 
+			<td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</td></tr>
+			 
+			<tr>
+				<td id="tde"> <label for="qualification">Qualification</label>
+				</td>
+				<td id="tde"><label for="specialization">Specialization</label></td>
+			</tr>
+		 
+			<tr>
+				<td id="tdc"> <input type="text" th:field=*{qualification} 	placeholder="Qualification"  ></td>
+				
+				<td id="tdc"><input type="text" th:field=*{specialization} placeholder="specialization" >
+				</td>
+			</tr>
+			<tr> <td th:if="${#fields.hasErrors('qualification')}" th:errors="*{qualification}">Name Error</td> 
+			<td th:if="${#fields.hasErrors('specialization')}" th:errors="*{specialization}">Name Error</td></tr>
+			 
+		<tfoot align="center"><td colspan="2"><label><button type="submit">ADD</button></label></td></tfoot>
+
+		</table>
+	</form>
+	</div>
+</body>
+</html>

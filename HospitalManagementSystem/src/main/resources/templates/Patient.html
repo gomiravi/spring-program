@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+  <link th:href="@{/css/Homestyle.css}" rel="stylesheet">
+</head>
+<body>
+<h1>Welcome to Patient block</h1>
+<div class="navbar">
+  <div class="dropdown">
+    <button  class="dropbtn" id="hh" >Home
+      <i class="fa fa-caret-down"></i>
+    </button>
+    </div>
+   
+  <div class="dropdown">
+    <button  class="dropbtn" >My Appointments
+      <i class="fa fa-caret-down"></i>
+    </button>
+    </div>
+  <div class="dropdown">
+    <button  class="dropbtn" ><a th:href="@{'/Patient/Book Appointment/'}">Book Appointments
+      </a><i class="fa fa-caret-down"></i>
+    </button>
+    
+  </div>
+   <div class="dropdown">
+    <button  class="dropbtn" ><a th:href="@{'/Patient/Cancel Appointment/'}">Cancel Appointments
+      </a><i class="fa fa-caret-down"></i>
+    </button>
+    
+  </div>
+   <div class="dropdown">
+    <button  class="dropbtn" ><a th:href="@{'/Logout/'}">LogOut</a>
+      <i class="fa fa-caret-down"></i>
+    </button>
+  </div>
+   
+</div>
+</body>
+</html>
